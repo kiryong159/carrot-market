@@ -1,9 +1,6 @@
+import { cls } from "@/libs/utils";
 import { useState } from "react";
 import tw from "tailwind-styled-components";
-
-function cls(...classnames: string[]) {
-  return classnames.join(" ");
-}
 
 const Wrapper = tw.div`
 mt-16
@@ -23,6 +20,7 @@ const SubmitBtn = tw.button``;
 const OtherLoginLine = tw.div``;
 const SociaalBox = tw.div``;
 const SocialBtn = tw.button``;
+
 export default function Enter() {
   const [method, setMethod] = useState<"email" | "phone">("email");
   const onEmailClick = () => setMethod("email");
