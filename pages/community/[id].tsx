@@ -1,5 +1,7 @@
+import Button from "@/components/button";
 import Layout from "@/components/layout";
 import tw from "tailwind-styled-components";
+import TextArea from "@/components/textarea";
 
 const Wrapper = tw.div``;
 const UserProfile = tw.div``;
@@ -83,14 +85,12 @@ function CommunityPostDetail() {
         </A>
 
         <Reply className="px-4">
-          <textarea
-            rows={4}
+          <TextArea
+            areaTitle="답변을 입력해주세요!"
+            label="Reply"
             placeholder="Answer this question!"
-            className=" w-full resize-none appearance-none rounded-lg border border-gray-300 px-3 py-2 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
           />
-          <button className="mt-2 w-full rounded-md border border-transparent bg-orange-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500  focus:ring-offset-2">
-            Reply
-          </button>
+          <Button text="Reply" />
         </Reply>
       </Wrapper>
     </Layout>

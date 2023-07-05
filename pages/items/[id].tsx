@@ -1,3 +1,4 @@
+import Button from "@/components/button";
 import Layout from "@/components/layout";
 import tw from "tailwind-styled-components";
 
@@ -38,9 +39,7 @@ function ItemDetail() {
               the first motherfucker to get shot. You understand?
             </p>
             <BtnBox className="flex items-center justify-between space-x-2">
-              <button className="flex-1 rounded-md bg-orange-400 py-3 text-white shadow-sm focus:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
-                Talk to seller
-              </button>
+              <Button large text="  Talk to seller" />
               <button className="flex items-center justify-center rounded-md p-3 text-gray-400 hover:bg-gray-100 hover:text-gray-600">
                 <svg
                   className="h-6 w-6 "

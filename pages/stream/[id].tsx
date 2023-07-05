@@ -1,4 +1,5 @@
 import Layout from "@/components/layout";
+import Message from "@/components/message";
 import tw from "tailwind-styled-components";
 
 const Wrapper = tw.div``;
@@ -27,78 +28,15 @@ function LiveDetail() {
         </p>
 
         <LiveChat className="h-[50vh] space-y-4 overflow-y-scroll rounded-md border border-orange-100 px-4 py-10">
-          <Left className="flex items-start space-x-2">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>Hi how much are you selling them for?</p>
-            </div>
-          </Left>
-          <Right className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>I want ￦20,000</p>
-            </div>
-          </Right>
-          <Left className="flex items-start space-x-2">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>Hi how much are you selling them for?</p>
-            </div>
-          </Left>
-          <Right className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>I want ￦20,000</p>
-            </div>
-          </Right>
-          <Left className="flex items-start space-x-2">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>Hi how much are you selling them for?</p>
-            </div>
-          </Left>
-          <Right className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>I want ￦20,000</p>
-            </div>
-          </Right>
-          <Left className="flex items-start space-x-2">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>Hi how much are you selling them for?</p>
-            </div>
-          </Left>
-          <Right className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>I want ￦20,000</p>
-            </div>
-          </Right>
-          <Left className="flex items-start space-x-2">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>Hi how much are you selling them for?</p>
-            </div>
-          </Left>
-          <Right className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>I want ￦20,000</p>
-            </div>
-          </Right>
-          <Left className="flex items-start space-x-2">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>Hi how much are you selling them for?</p>
-            </div>
-          </Left>
-          <Right className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-            <div className="h-8 w-8 rounded-full bg-slate-500" />
-            <div className="w-2/3 rounded-md border border-gray-300 p-2 text-sm font-medium text-gray-900">
-              <p>I want ￦20,000</p>
-            </div>
-          </Right>
+          <Message text="Hi how much are you selling them for?" />
+          <Message text="I want ￦20,000" reverse />
+          <Message text="ㅗ" />
+          <Message text="Hi how much are you selling them for?" />
+          <Message text="I want ￦20,000" reverse />
+          <Message text="ㅗ" />
+          <Message text="Hi how much are you selling them for?" />
+          <Message text="I want ￦20,000" reverse />
+          <Message text="ㅗ" />
         </LiveChat>
         <TypingBox className="fixed inset-x-0 bottom-2 mx-auto w-full max-w-md px-2">
           <div className="relative flex items-center ">

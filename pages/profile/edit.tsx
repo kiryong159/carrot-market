@@ -1,3 +1,5 @@
+import Button from "@/components/button";
+import Input from "@/components/input";
 import Layout from "@/components/layout";
 import tw from "tailwind-styled-components";
 
@@ -27,39 +29,12 @@ function EditProfile() {
           </label>
         </ProfilePhoto>
         <EmailEdit>
-          <label htmlFor="email" className="text-sm font-medium text-gray-700 ">
-            Email address
-          </label>
-          <InputBox className="mt-2">
-            <input
-              id="email"
-              type="email"
-              className="w-full appearance-none rounded-lg border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
-              required
-            />
-          </InputBox>
+          <Input label="Email address" value="text" />
         </EmailEdit>
         <PhoneEdit>
-          <label htmlFor="phone" className="text-sm font-medium text-gray-700 ">
-            Phone Number
-          </label>
-          <InputBox className="mt-2">
-            <div className="flex rounded-sm shadow-sm ">
-              <span className="flex select-none items-center justify-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50  px-3 text-sm text-gray-500">
-                +82
-              </span>
-              <input
-                id="input"
-                type="number"
-                className="w-full appearance-none rounded-lg rounded-l-none  border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
-                required
-              />
-            </div>
-          </InputBox>
+          <Input value="phone" label=" Phone Number" />
         </PhoneEdit>
-        <SubmitBtn className="mt-5 w-full rounded-md border border-transparent bg-orange-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500  focus:ring-offset-2">
-          Update Profile
-        </SubmitBtn>
+        <Button text="Update Profile" />
       </Wrapper>
     </Layout>
   );

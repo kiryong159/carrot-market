@@ -1,8 +1,10 @@
+import FloatingButton from "@/components/floating-button";
 import Layout from "@/components/layout";
+import Link from "next/link";
 import tw from "tailwind-styled-components";
 
 const Wrapper = tw.div``;
-const Main = tw.div``;
+
 const Name = tw.div``;
 
 function Community() {
@@ -10,7 +12,11 @@ function Community() {
     <Layout title="동네생활" hasTabBar>
       <Wrapper className="space-y-8 px-6 py-10">
         {[1, 2, 3, 4, 5, 1, 1, 1].map((_, i) => (
-          <Main key={i} className="flex cursor-pointer flex-col items-start">
+          <Link
+            href={`/community/${i}`}
+            key={i}
+            className="flex cursor-pointer flex-col items-start"
+          >
             <span className="flex items-center rounded-full bg-gray-300 px-2.5 py-0.5 text-xs  font-medium ">
               동네질문
             </span>
@@ -58,9 +64,9 @@ function Community() {
                 <span>답변 1</span>
               </span>
             </div>
-          </Main>
+          </Link>
         ))}
-        <button className="fixed bottom-24 right-5 rounded-full bg-orange-400 p-4 text-white shadow-xl transition-all hover:bg-orange-600">
+        <FloatingButton href="/community/write">
           <svg
             className="h-6 w-6"
             fill="none"
@@ -75,7 +81,7 @@ function Community() {
               d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
             ></path>
           </svg>
-        </button>
+        </FloatingButton>
       </Wrapper>
     </Layout>
   );
