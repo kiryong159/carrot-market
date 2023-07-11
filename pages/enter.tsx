@@ -1,6 +1,10 @@
-import { cls } from "@/libs/utils";
+import { cls } from "@/libs/server/utils";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import tw from "tailwind-styled-components";
+import Input from "@/components/input";
+import useMutaion from "@/libs/client/useMutation";
+import Button from "@/components/button";
 
 const Wrapper = tw.div`
 mt-16
@@ -15,16 +19,29 @@ const Main = tw.div`
 mt-8
 `;
 const TapBtn = tw.div``;
-const InputBox = tw.div``;
-const SubmitBtn = tw.button``;
 const OtherLoginLine = tw.div``;
 const SociaalBox = tw.div``;
 const SocialBtn = tw.button``;
 
+interface IEnterForm {
+  email?: string;
+  phone?: string;
+}
+
 export default function Enter() {
+  const [enter, { loading, data, error }] = useMutaion("/api/users/enter");
+  const { register, handleSubmit, reset } = useForm<IEnterForm>();
   const [method, setMethod] = useState<"email" | "phone">("email");
-  const onEmailClick = () => setMethod("email");
-  const onPhoneClick = () => setMethod("phone");
+  const onEmailClick = () => {
+    reset(), setMethod("email");
+  };
+  const onPhoneClick = () => {
+    reset(), setMethod("phone");
+  };
+  const onValid = (validForm: IEnterForm) => {
+    if (loading) return;
+    enter(validForm);
+  };
   return (
     <Wrapper>
       <Title>Enter to Carrot</Title>
@@ -56,38 +73,39 @@ export default function Enter() {
             </button>
           </TapBtn>
         </div>
-        <form className="mt-8 flex flex-col">
-          <label htmlFor="input" className="text-sm font-medium text-gray-700 ">
-            {method === "email" ? "Email address" : null}
-            {method === "phone" ? "Phone number" : null}
-          </label>
-          <InputBox className="mt-2">
-            {method === "email" ? (
-              <input
-                id="input"
-                type="email"
-                className="w-full appearance-none rounded-lg border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
-                required
-              />
-            ) : null}
-            {method === "phone" ? (
-              <div className="flex rounded-sm shadow-sm ">
-                <span className="flex select-none items-center justify-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50  px-3 text-sm text-gray-500">
-                  +82
-                </span>
-                <input
-                  id="input"
-                  type="number"
-                  className="w-full appearance-none rounded-lg rounded-l-none  border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
-                  required
-                />
-              </div>
-            ) : null}
-          </InputBox>
-          <SubmitBtn className="mt-5 rounded-md border border-transparent bg-orange-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500  focus:ring-offset-2">
-            {method === "email" ? "Get login link" : null}
-            {method === "phone" ? "Get one-time password" : null}
-          </SubmitBtn>
+        <form
+          onSubmit={handleSubmit(onValid)}
+          className="mt-8 flex flex-col space-y-4"
+        >
+          {method === "email" ? (
+            <Input
+              register={register("email", { required: true })}
+              value="email"
+              label="Email address"
+            />
+          ) : null}
+          {method === "phone" ? (
+            <Input
+              register={register("phone", { required: true })}
+              label="Phone number"
+              value="phone"
+            />
+          ) : null}
+
+          {method === "email" ? (
+            loading ? (
+              <Button text="Loading" />
+            ) : (
+              <Button text="Get login link" />
+            )
+          ) : null}
+          {method === "phone" ? (
+            loading ? (
+              <Button text="Loading" />
+            ) : (
+              <Button text="Get one-time password" />
+            )
+          ) : null}
         </form>
         <div className="mt-8">
           <OtherLoginLine className="relative">

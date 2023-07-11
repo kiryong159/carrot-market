@@ -3,8 +3,6 @@ import Message from "@/components/message";
 import tw from "tailwind-styled-components";
 
 const Wrapper = tw.div``;
-const Left = tw.div``;
-const Right = tw.div``;
 const LiveChat = tw.div``;
 const TypingBox = tw.div``;
 

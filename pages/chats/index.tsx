@@ -7,8 +7,8 @@ const Wrapper = tw.div``;
 function Chats() {
   return (
     <Layout title="채팅" hasTabBar>
-      <Wrapper className="divide-y-[1px] divide-orange-200 py-10">
-        {[1, 2, 3].map((i) => (
+      <Wrapper className="divide-y-[1px] divide-orange-200 overscroll-none py-10">
+        {[1, 2, 3, 4, 5].map((i) => (
           <Link
             href={`/chats/${i}`}
             key={i}

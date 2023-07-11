@@ -3,12 +3,13 @@ import Items from "@/components/Items";
 import Layout from "@/components/layout";
 import tw from "tailwind-styled-components";
 
-const Wrapper = tw.div``;
+const Wrapper = tw.div`
+`;
 
 export default function Home() {
   return (
     <Layout title="홈" hasTabBar>
-      <Wrapper className=" flex  flex-col space-y-5 py-10">
+      <Wrapper className="  flex flex-col space-y-5 py-10  ">
         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
           <Items
             id={i}

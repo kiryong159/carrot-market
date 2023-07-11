@@ -1,13 +1,21 @@
 import React from "react";
+import type { UseFormRegisterReturn } from "react-hook-form";
 
 interface InputProps {
-  value: "price" | "phone" | "text";
+  value: "price" | "phone" | "text" | "email";
   label: string;
   placeholder?: string;
-  [key: string]: any;
+  register: UseFormRegisterReturn;
 }
 
-function Input({ value, label, placeholder, ...rest }: InputProps) {
+function Input({
+  value,
+  label,
+  placeholder,
+  register,
+
+  ...rest
+}: InputProps) {
   return (
     <div>
       <label
@@ -20,8 +28,21 @@ function Input({ value, label, placeholder, ...rest }: InputProps) {
         <div className="flex items-center rounded-md shadow-sm">
           <input
             id={label}
+            {...register}
             {...rest}
             type="text"
+            placeholder={placeholder}
+            className="w-full appearance-none rounded-lg border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
+          />
+        </div>
+      ) : null}
+      {value === "email" ? (
+        <div className="flex items-center rounded-md shadow-sm">
+          <input
+            id={label}
+            {...register}
+            {...rest}
+            type="email"
             placeholder={placeholder}
             className="w-full appearance-none rounded-lg border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
           />
@@ -34,6 +55,8 @@ function Input({ value, label, placeholder, ...rest }: InputProps) {
           </div>
           <input
             id="price"
+            {...register}
+            {...rest}
             type="text"
             placeholder="0.00"
             className="w-full appearance-none rounded-lg border border-gray-300 px-3 py-2 pl-7 placeholder-gray-400 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
@@ -50,9 +73,10 @@ function Input({ value, label, placeholder, ...rest }: InputProps) {
           </span>
           <input
             id={label}
+            {...register}
+            {...rest}
             type="number"
             className="w-full appearance-none rounded-lg rounded-l-none  border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500"
-            required
           />
         </div>
       ) : null}
